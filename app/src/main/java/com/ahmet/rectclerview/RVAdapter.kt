@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -45,6 +46,35 @@ class RVAdapter(private val mContext:Context,private val ulkelerDisaridanGelenLi
         holder.satirCardView.setOnClickListener{
 
             Toast.makeText(mContext,"Sectiğiniz ülke : ${ulke.UlkeAdi}",Toast.LENGTH_SHORT).show()
+        }
+
+        holder.noktaResim.setOnClickListener{
+            val popup = PopupMenu(mContext,holder.noktaResim)
+
+            popup.menuInflater.inflate(R.menu.popup_menu,popup.menu)
+
+            popup.show()
+
+            popup.setOnMenuItemClickListener { item ->
+
+                when(item.itemId){
+                    R.id.action_sil->{
+                        Toast.makeText(mContext,"Silindi : ${ulke.UlkeAdi}",Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.action_duzenle->{
+                        Toast.makeText(mContext,"Düzenlendi : ${ulke.UlkeAdi}",Toast.LENGTH_SHORT).show()
+                        true
+                    }
+
+                    else -> false
+
+                }
+
+
+
+
+            }
         }
     }
 

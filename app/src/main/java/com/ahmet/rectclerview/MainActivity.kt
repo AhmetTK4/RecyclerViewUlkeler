@@ -3,6 +3,7 @@ package com.ahmet.rectclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -16,8 +17,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rv.setHasFixedSize(true)
-        rv.layoutManager = LinearLayoutManager(this)
-
+       rv.layoutManager = LinearLayoutManager(this)
+         //   rv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        //rv.layoutManager = StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.HORIZONTAL)
         val u1 = Ulkeler(1,"Turkiye")
         val u2 = Ulkeler(2,"Almanya")
         val u3 = Ulkeler(3,"Italya")
